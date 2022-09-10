@@ -13,8 +13,7 @@
     <section>
       <h1>Prediction Website</h1>
       <p>
-        This website can predict the age, gender and nationality of a user based
-        on his/her name.
+        This website can predict the age, gender and nationality of a user based on his/her name.
       </p>
     </section>
 
@@ -26,14 +25,14 @@
     <!-- Input user info -->
     <section>
       <label for="name">Please enter your name</label>
-      <input id="name" type="text" placeholder="Type here..." />
-      <input type="submit" />
+      <input id="name" type="text" placeholder="Type here..." onfocus=this.value='' />
+      <input type="submit" id="submit"/>
     </section>
 
     <!-- Predicted Data -->
     <section>
-      <p>Your predicted age is: <span id="age"></span></p>
-      <p>Your predicted gender is: <span id="gender"></span></p>
+      <p id="age"></p>
+      <p id="gender"></p>
       <p id="nationality"></p>
     </section>
 
