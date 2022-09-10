@@ -6,6 +6,7 @@ window.onload = () => {
   const nationality = document.getElementById("nationality");
   const button = document.getElementById("submit");
   const nameInput = document.getElementById("name");
+  const displayName = document.getElementById("display-name");
   let name;
 
   // Functions
@@ -21,7 +22,11 @@ window.onload = () => {
   let fetchGender = name => {
     return fetch(`https://api.genderize.io?name=${name}`)
       .then(res => res.json())
-      .then(data => (gender.innerHTML = `Your predicted gender is: ${data.gender}`))
+      .then(data => {
+        if (data.gender) {
+          return (gender.innerHTML = `Your predicted gender is: ${data.gender}`);
+        }
+      })
       .catch(error => console.log(error));
   };
 
@@ -29,7 +34,13 @@ window.onload = () => {
   let fetchAge = name => {
     return fetch(`https://api.agify.io/?name=${name}`)
       .then(res => res.json())
-      .then(data => (age.innerHTML = `Your predicted age is: ${data.age}`))
+      .then(data => {
+        if (data.age) {
+          return (age.innerHTML = `Your predicted age is: ${data.age}`);
+        } else {
+          return (displayName.innerHTML = `Name: ${name}: This is not a valid name.`);
+        }
+      })
       .catch(error => console.log(error));
   };
 
@@ -37,13 +48,15 @@ window.onload = () => {
   let fetchNationality = name => {
     return fetch(`https://api.nationalize.io/?name=${name}`)
       .then(res => res.json())
-      .then(
-        data =>
-          (nationality.innerHTML =
+      .then(data => {
+        if (data.country[0]) {
+          console.log(data)
+          nationality.innerHTML =
             data.country.length == 1
               ? `Your predicted nationality is ${data.country[0].country_id}`
-              : `Your predicted nationalities are ${data.country[0].country_id} and ${data.country[1].country_id}`)
-      )
+              : `Your predicted nationalities are ${data.country[0].country_id} and ${data.country[1].country_id}`;
+        }
+      })
       .catch(error => console.log(error));
   };
 
@@ -54,6 +67,7 @@ window.onload = () => {
   nameInput.addEventListener("input", event => (name = event.target.value));
   console.log(name);
   button.addEventListener("click", () => {
+    displayName.innerHTML = `Name: ${name}:`;
     fetchAge(name);
     fetchGender(name);
     fetchNationality(name);
