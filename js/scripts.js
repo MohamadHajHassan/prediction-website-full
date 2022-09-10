@@ -50,7 +50,6 @@ window.onload = () => {
       .then(res => res.json())
       .then(data => {
         if (data.country[0]) {
-          console.log(data)
           nationality.innerHTML =
             data.country.length == 1
               ? `Your predicted nationality is ${data.country[0].country_id}`
@@ -62,14 +61,19 @@ window.onload = () => {
 
   //
   //
-  //
   fetchDog();
+  nameInput.addEventListener("click", () => {
+    age.innerHTML = ``;
+    nationality.innerHTML = ``;
+    gender.innerHTML = ``;
+    displayName.innerHTML = ``;
+  });
   nameInput.addEventListener("input", event => (name = event.target.value));
-  console.log(name);
   button.addEventListener("click", () => {
-    displayName.innerHTML = `Name: ${name}:`;
+    displayName.innerHTML = `Name: ${name}`;
     fetchAge(name);
     fetchGender(name);
     fetchNationality(name);
   });
+  
 };
