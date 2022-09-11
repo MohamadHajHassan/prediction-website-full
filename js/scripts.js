@@ -10,6 +10,7 @@ window.onload = () => {
   let name;
   const registerPopup = document.getElementById("register-popup");
   const register = document.getElementById("register");
+  const registerSubmit = document.getElementById("register-submit");
 
   // Functions
   // fetch the api to display a random dog picture function
@@ -71,6 +72,24 @@ window.onload = () => {
     registerPopup.classList.add("popup-visible");
   };
 
+  // Store data
+  let store = () => {
+    let registerName = document.getElementById("register-name");
+    let registerEmail = document.getElementById("register-email");
+    let registerPassword = document.getElementById("register-password");
+    if (registerName.value.length == 0) {
+      alert("Please enter you name!");
+    } else if (registerEmail.value.length == 0) {
+      alert("Please enter your email!");
+    } else if (registerPassword == 0) {
+      alert("Please enter a password!");
+    } else {
+      localStorage.setItem("rname", registerName.value);
+      localStorage.setItem("remail", registerEmail.value);
+      localStorage.setItem("rpassword", registerPassword.value);
+    }
+  };
+
   //
   //
   fetchDog();
@@ -93,4 +112,5 @@ window.onload = () => {
     }
   });
   register.addEventListener("click", openRegisterPopup);
+  registerSubmit.addEventListener("click", store);
 };
