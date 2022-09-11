@@ -38,7 +38,12 @@ window.onload = () => {
         if (data.age) {
           return (age.innerHTML = `Your predicted age is: ${data.age}`);
         } else {
-          return (displayName.innerHTML = `Name: ${name}: This is not a valid name.`);
+          return (
+            (displayName.innerHTML = `Name: ${name}: This is not a valid name.`),
+            (age.innerHTML = ""),
+            (nationality.innerHTML = ""),
+            (gender.innerHTML = "")
+          );
         }
       })
       .catch(error => console.log(error));
@@ -75,5 +80,4 @@ window.onload = () => {
     fetchGender(name);
     fetchNationality(name);
   });
-  
 };
