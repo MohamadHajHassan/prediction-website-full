@@ -13,6 +13,7 @@ window.onload = () => {
   const registerSubmit = document.getElementById("register-submit");
   const loginPopup = document.getElementById("login-popup");
   const login = document.getElementById("login");
+  const loginSubmit = document.getElementById("login-submit");
 
   // Functions
   // fetch the api to display a random dog picture function
@@ -97,6 +98,20 @@ window.onload = () => {
     loginPopup.classList.add("popup-visible");
   };
 
+  // check login data
+  let check = () => {
+    let rname = localStorage.getItem("rname");
+    let remail = localStorage.getItem("remail");
+    let rpassword = localStorage.getItem("rpassword");
+    let loginEmail = document.getElementById("login-email");
+    let loginPassword = document.getElementById("login-password");
+    if (loginEmail.value == remail && loginPassword.value == rpassword) {
+      name = rname;
+    } else {
+      alert("Wrong login details");
+    }
+  };
+
   //
   //
   fetchDog();
@@ -121,4 +136,5 @@ window.onload = () => {
   register.addEventListener("click", openRegisterPopup);
   registerSubmit.addEventListener("click", store);
   login.addEventListener("click", openLoginPopup);
+  loginSubmit.addEventListener("click", check);
 };
