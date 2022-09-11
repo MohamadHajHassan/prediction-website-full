@@ -55,10 +55,10 @@ window.onload = () => {
       .then(res => res.json())
       .then(data => {
         if (data.country[0]) {
-          nationality.innerHTML =
+          return (nationality.innerHTML =
             data.country.length == 1
               ? `Your predicted nationality is ${data.country[0].country_id}`
-              : `Your predicted nationalities are ${data.country[0].country_id} and ${data.country[1].country_id}`;
+              : `Your predicted nationalities are ${data.country[0].country_id} and ${data.country[1].country_id}`);
         }
       })
       .catch(error => console.log(error));
@@ -72,12 +72,17 @@ window.onload = () => {
     nationality.innerHTML = ``;
     gender.innerHTML = ``;
     displayName.innerHTML = ``;
+    name = undefined;
   });
   nameInput.addEventListener("input", event => (name = event.target.value));
   button.addEventListener("click", () => {
-    displayName.innerHTML = `Name: ${name}`;
-    fetchAge(name);
-    fetchGender(name);
-    fetchNationality(name);
+    if (name) {
+      displayName.innerHTML = `Name: ${name}`;
+      fetchAge(name);
+      fetchGender(name);
+      fetchNationality(name);
+    } else {
+      alert("The name is required to proceed, please enter your name!");
+    }
   });
 };
