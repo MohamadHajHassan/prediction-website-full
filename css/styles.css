@@ -92,4 +92,17 @@ h1 {
   .popup-visible{
     visibility: visible;
   }
+
+  h2{
+    font-size: small;
+    padding: 0.5%;
+  }
+  .links{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .links:hover{
+    color: blue;
+    text-decoration: none;
+  }
   
