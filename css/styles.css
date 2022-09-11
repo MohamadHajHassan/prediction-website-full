@@ -76,3 +76,33 @@ h1 {
     }
   }
   
+  /* Register - Log in */
+  .popup{
+    display: flex;
+    align-items: center;
+    width: 50vw;
+    background-color: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    text-align: center;
+    visibility: hidden;
+  }
+  .popup-visible{
+    visibility: visible;
+  }
+
+  h2{
+    font-size: small;
+    padding: 0.5%;
+  }
+  .links{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .links:hover{
+    color: blue;
+    text-decoration: none;
+  }
+  
