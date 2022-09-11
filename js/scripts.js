@@ -8,6 +8,8 @@ window.onload = () => {
   const nameInput = document.getElementById("name");
   const displayName = document.getElementById("display-name");
   let name;
+  const registerPopup = document.getElementById("register-popup");
+  const register = document.getElementById("register");
 
   // Functions
   // fetch the api to display a random dog picture function
@@ -64,6 +66,11 @@ window.onload = () => {
       .catch(error => console.log(error));
   };
 
+  // open register popup
+  let openRegisterPopup = () => {
+    registerPopup.classList.add("popup-visible");
+  };
+
   //
   //
   fetchDog();
@@ -85,4 +92,5 @@ window.onload = () => {
       alert("The name is required to proceed, please enter your name!");
     }
   });
+  register.addEventListener("click", openRegisterPopup);
 };
