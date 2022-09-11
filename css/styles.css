@@ -1,0 +1,29 @@
+/* utilities */
+.big-container {
+  margin: 0 10vw 5vh;
+}
+.container {
+  padding: 1%;
+  margin: auto;
+  width: 100%;
+}
+.flex-column-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.flex-container {
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35vh;
+  width: 60vw;
+  margin: 0 auto;
+}
