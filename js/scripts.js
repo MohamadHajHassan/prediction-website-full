@@ -11,6 +11,8 @@ window.onload = () => {
   const registerPopup = document.getElementById("register-popup");
   const register = document.getElementById("register");
   const registerSubmit = document.getElementById("register-submit");
+  const loginPopup = document.getElementById("login-popup");
+  const login = document.getElementById("login");
 
   // Functions
   // fetch the api to display a random dog picture function
@@ -90,6 +92,11 @@ window.onload = () => {
     }
   };
 
+  // open login popup
+  let openLoginPopup = () => {
+    loginPopup.classList.add("popup-visible");
+  };
+
   //
   //
   fetchDog();
@@ -113,4 +120,5 @@ window.onload = () => {
   });
   register.addEventListener("click", openRegisterPopup);
   registerSubmit.addEventListener("click", store);
+  login.addEventListener("click", openLoginPopup);
 };
