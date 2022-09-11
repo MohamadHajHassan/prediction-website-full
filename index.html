@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction website</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Title and description -->
+    <div class="big-container">
+      <section class="container flex-container">
+        <h1>Prediction Website</h1>
+        <p>
+          This website can predict the age, gender and nationality of a user based on his/her name.
+        </p>
+      </section>
+
+      <!-- Dog image -->
+      <section class="img-container">
+        <div id="dog" class="dog-image"></div>
+      </section>
+
+      <!-- Input user info -->
+      <section class=" container input-info">
+        <label for="name">Please enter your name</label>
+        <div class="flex-container">
+          <input
+            id="name"
+            type="text"
+            placeholder="Type here..."
+            required
+            onfocus=this.value='' />
+          <input type="submit" id="submit" class="btn" />
+        </div>
+      </section>
+
+      <!-- Predicted Data -->
+      <section class="container flex-column-container">
+        <p id="display-name"></p>
+        <p id="age"></p>
+        <p id="gender"></p>
+        <p id="nationality"></p>
+      </section>
+    </div>
+
+    <script src="js/scripts.js" type="text/javascript"></script>
+  </body>
+</html>
